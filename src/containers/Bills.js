@@ -2,6 +2,7 @@ import { ROUTES_PATH } from '../constants/routes.js'
 import { formatDate, formatStatus } from "../app/format.js"
 import Logout from "./Logout.js"
 
+
 export default class {
   constructor({ document, onNavigate, store, localStorage }) {
     this.document = document
@@ -26,6 +27,21 @@ export default class {
     $('#modaleFile').find(".modal-body").html(`<div style='text-align: center;' class="bill-proof-container"><img width=${imgWidth} src=${billUrl} alt="Bill" /></div>`)
     $('#modaleFile').modal('show')
   }
+
+  // Je crée une fonction de tri par date de bills 
+  // Méthode sortByDate qui prend en paramètre un tableau de factures (bills)
+  sortByDate = (bills) => {
+    // Méthode sort() utilisée pour trier le tableau de factures
+    return bills.sort((a, b) => {
+      // Conversion des dates de chaque facture en objets Date pour comparaison
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      // Retourne la différence entre les dates de b et a
+      // Ce qui a pour effet de trier le tableau dans l'ordre décroissant de date
+      return dateB - dateA;
+    });
+  }
+  
 
   getBills = () => {
     if (this.store) {
@@ -52,8 +68,8 @@ export default class {
               }
             }
           })
-          console.log('length', bills.length)
-        return bills
+        // Rtourne les factures triées par date
+        return this.sortByDate(bills);
       })
     }
   }
