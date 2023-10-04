@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+import "@testing-library/jest-dom";
 
 import LoginUI from "../views/LoginUI";
 import Login from "../containers/Login.js";
