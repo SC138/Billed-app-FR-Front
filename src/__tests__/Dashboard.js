@@ -240,6 +240,8 @@ describe('Given I am connected as Admin and I am on Dashboard page and I clicked
   })
 })
 
+
+
 // test d'intégration GET
 describe("Given I am a user connected as Admin", () => {
   describe("When I navigate to Dashboard", () => {
