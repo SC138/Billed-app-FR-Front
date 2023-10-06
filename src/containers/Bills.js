@@ -68,7 +68,7 @@ export default class {
               }
             }
           })
-        // Rtourne les factures triées par date
+        // Retourne les factures triées par date
         return this.sortByDate(bills);
       })
     }
