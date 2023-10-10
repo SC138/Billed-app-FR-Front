@@ -46,6 +46,7 @@ export default class NewBill {
       e.target.querySelector(`input[data-testid="datepicker"]`).value
     );
     const email = JSON.parse(localStorage.getItem("user")).email;
+    const file = this.document.querySelector(`input[data-testid="file"]`).files[0];
     const bill = {
       email,
       type: e.target.querySelector(`select[data-testid="expense-type"]`).value,
